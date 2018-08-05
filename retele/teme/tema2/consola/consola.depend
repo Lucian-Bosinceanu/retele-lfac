@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1508265051 source:/home/lucian/Desktop/teme/tema2/consola/main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<unistd.h>
+	<sys/types.h>
+

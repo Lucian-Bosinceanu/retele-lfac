@@ -1,0 +1,3 @@
+1. Programati folosind fork() si execvp() o consola (scrie o comanda si o executa). Argumentele sunt separate prin spatiu.
+Nu executati programe interactive gen top sau less.
+Implementati comportamentul de cd. 

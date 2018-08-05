@@ -1,0 +1,60 @@
+# depslib dependency file v1.0
+1509451323 source:/home/lucian/Desktop/teme/temaProtocol/main.cpp
+	<iostream>
+	<stdio.h>
+	<stdlib.h>
+	"Client.h"
+	<string>
+
+1509305548 /home/lucian/Desktop/teme/temaProtocol/loginComponent.h
+	<string>
+	<vector>
+
+1509376940 source:/home/lucian/Desktop/teme/temaProtocol/loginComponent.cpp
+	"loginComponent.h"
+	<stdlib.h>
+	<fstream>
+
+1509532840 source:/home/lucian/Desktop/teme/temaProtocol/Client.cpp
+	"Client.h"
+	<string>
+	<iostream>
+	<string.h>
+	<sys/wait.h>
+
+1509481882 /home/lucian/Desktop/teme/temaProtocol/Client.h
+	<string>
+	"Server.h"
+
+1509478741 /home/lucian/Desktop/teme/temaProtocol/Server.h
+	<string>
+	"loginComponent.h"
+	"CommunicationComponent.h"
+
+1509481738 /home/lucian/Desktop/teme/temaProtocol/CommunicationComponent.h
+	<string>
+	<stdio.h>
+	<stdlib.h>
+	<unistd.h>
+
+1509484546 source:/home/lucian/Desktop/teme/temaProtocol/CommunicationComponent.cpp
+	"CommunicationComponent.h"
+	<stdio.h>
+	<stdlib.h>
+	<unistd.h>
+	<sys/types.h>
+	<sys/socket.h>
+	<fcntl.h>
+	<sys/stat.h>
+
+1509485631 source:/home/lucian/Desktop/teme/temaProtocol/Server.cpp
+	"Server.h"
+	<string>
+	<iostream>
+	<sys/wait.h>
+	<sys/stat.h>
+	<unistd.h>
+	<string.h>
+	<time.h>
+	<dirent.h>
+

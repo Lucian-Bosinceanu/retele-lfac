@@ -1,0 +1,140 @@
+
+%{
+#include <stdio.h>
+extern FILE* yyin;
+extern char* yytext;
+extern int yylineno;
+%}
+%token ID TIP BEGIN END ASSIGN NR 
+%start progr
+%%
+progr: declaratii main {printf("program corect sintactic\n");}
+     ;
+
+declaratii :  declaratie ';'
+	   | declaratii declaratie ';'
+	   ;
+declaratie : TIP ID 
+           | TIP ID '(' lista_param ')'
+           | TIP ID '(' ')'
+           ;
+lista_param : param
+            | lista_param ','  param 
+            ;
+            
+param : TIP ID
+      ; 
+      
+/* bloc */
+main : BEGIN list END  
+     ;
+
+bloc : '<' list '>'
+     | '<' list RETURN '>'
+     ; 
+
+/* lista instructiuni */
+list :  statement '?' 
+     | list statement '?'
+     | control
+     | list control
+     ;
+
+/* instructiune */
+statement: ID ASSIGN ID
+         | ID ASSIGN NR  
+         | ID ASSIGN Aexp		 
+         | ID ASSIGN Bexp
+         | ID '(' lista_apel ')'
+         | declaratie
+         | PRINT '(' Aexp ')'
+         | COMMENT
+         ;
+        
+control: WHILE '(' Bexp ')' bloc
+       | IF '(' Bexp ')' bloc ELSE bloc
+       | FOR '(' Aexp '?' Bexp '?' Aexp ')'
+       ;
+
+/* Expresii aritmetice */
+Aexp: NR
+    | '(' Aexp ')'
+    | Aexp '+' Aexp  
+    | Aexp '*' Aexp
+    | Aexp '-' Aexp
+    | Aexp '/' Aexp
+    | INC ID
+    | ID INC
+    | DEC ID
+    | ID DEC
+    ;
+
+Bexp: BOOL
+    | Aexp COMP Aexp
+    | Bexp AND Bexp
+    | Bexp OR Bexp
+    | Bexp NOT Bexp
+    | (Bexp)
+    ;  
+
+lista_apel : NR
+           | lista_apel ',' NR
+           ;
+%%
+int yyerror(char * s){
+printf("eroare: %s la linia:%d\n",s,yylineno);
+}
+
+int main(int argc, char** argv){
+yyin=fopen(argv[1],"r");
+yyparse();
+} 
+
+
+
+
+
+
+
+
+cred ca int abc?
+cred ca bool ceva =? adivarat?
+cred ca float date[45]?
+o functie string numeF (cred ca int A, cred ca float B) <
+
+    cred ca string cineva = "ceva ceva"?
+    
+    //? ???? este functia de afisare
+    ????(A+B)?
+    intoarce cineva?
+>
+
+aa...
+
+    cred ca int i,j?
+
+    i =? 1 + 4?
+    j =? 10?
+
+    cat timp ( i !?= j )
+        <
+            i+?+?  
+            j-?-?
+        >     
+
+    un struct _numeStruct: <
+    
+        cred ca string nume?
+        cred ca int varsta?
+        cred ca float inaltime35?
+    >
+    _numeStruct elev;  
+
+    elev ~> nume =? numeF(30,40.5)?
+    elev ~> varsta =? i?
+
+    date[j] =? 10?
+
+    ????(elev ~> varsta)?
+
+...da
